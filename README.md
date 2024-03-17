@@ -40,14 +40,4 @@ This project is aimed at providing sentiment analysis and summarization function
         - Input: Health reports in PDF format.
         - Output: Summarized health report, with an option to save in PDF format.
 
-## Installation
-1. Clone the repository: git clone https://github.com/your/repository.git
-2. Install dependencies: pip install -r requirements.txt
-3. Run the project: python main.py
 
-## Contributing
-1. Fork the repository.
-2. Create a new branch (git checkout -b feature/improvement)
-3. Commit your changes (git commit -am 'Add new feature')
-4. Push to the branch (git push origin feature/improvement)
-5. Create a new Pull Request.
