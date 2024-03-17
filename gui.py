@@ -20,11 +20,6 @@ def main():
   
     if st.button("Admin Login"):
         execute_script("admin.py")
-
-    if st.button("Sentiment Analysis"):
-        execute_script("custom_gui.py")
     
-    
-
 if __name__ == "__main__":
     main()
