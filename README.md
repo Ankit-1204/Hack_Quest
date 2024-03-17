@@ -39,5 +39,10 @@ This project is aimed at providing sentiment analysis and summarization function
     - *Health Report Summarization*:
         - Input: Health reports in PDF format.
         - Output: Summarized health report, with an option to save in PDF format.
-
+    Requirements:
+please install
+Vader Library
+NLTK corpus
+Joblib
+PyPDF2
 
