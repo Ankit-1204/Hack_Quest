@@ -1,4 +1,4 @@
-# Hack_Quest
+# Hack_Quest 2024
 VIDEO DEMONSTRATION LINK: https://drive.google.com/file/d/19qYHrM6k607szTceaVoJBZ6R-WlLIVBi/view?usp=sharing
 # Linguistic Odyssey
 
@@ -47,4 +47,3 @@ Vader Library
 NLTK corpus
 Joblib
 PyPDF2
-
