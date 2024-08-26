@@ -25,8 +25,7 @@ def predict_sentiment(input_text):
     else:
         return "Unknown"
 
-        
-# Function to update CSV file with sentiment outcomes
+
 def update_csv(product_name, prediction):
     filename = 'sentiment_data.csv'
     if not os.path.exists(filename):
@@ -53,7 +52,7 @@ def update_csv(product_name, prediction):
         writer.writeheader()
         writer.writerows(rows)
 
-# Function to plot doughnut pie chart
+
 def plot_doughnut_pie_chart(product_name):
     product_row = sentiment_df[sentiment_df['Product'] == product_name]
     if product_row.empty:
@@ -73,15 +72,15 @@ def plot_doughnut_pie_chart(product_name):
     fig.patch.set_facecolor('black') 
     fig.gca().add_artist(centre_circle)
     plt.title('Sentiment Distribution',color='white', fontsize=6)
-    plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-            # Set background color of Streamlit app
+    plt.axis('equal') 
+         
     for text in ax.texts:
         text.set_color('white')
         text.set_fontsize(6)
     st.pyplot(fig,width=200) 
     
 
-# Define products and their descriptions
+
 products = {
     'Fire TV Stick': { "image": "images/Fire Stick.jpg"},
     'Speaker Echo 2': { "image": "images/Speaker Echo 2.jpg"},
@@ -92,7 +91,6 @@ products = {
     'Black Plus Echo': {"image": "images/black plus echo.jpg"},
 }
 products_df = pd.read_csv('products.csv')
-# Main function
 
 
 def main():
@@ -119,7 +117,7 @@ def main():
         review = st.text_area(f"Leave a Review for {product_name}")
         submit_button = st.button(f"Submit Review for {product_name}")
         if submit_button and review:
-            # Perform sentiment analysis on the review
+    
             sentiment = predict_sentiment(review)
             if sentiment == 1:
                 st.image('images/negative.PNG', caption='Negative Sentiment', width=100)
