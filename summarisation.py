@@ -15,9 +15,9 @@ def extract_text_from_pdf(uploaded_file,selected_pages=None):
     num_pages = len(pdf_reader.pages)
 
     if selected_pages is None:
-        selected_pages = range(1, num_pages + 1)  # PyPDF2 pages are 0-indexed
+        selected_pages = range(1, num_pages + 1) 
     for page_num in selected_pages:
-        # Adjust for 0-indexing of PyPDF2
+       
         page_index = page_num - 1
         if 0 <= page_index < num_pages:
             page = pdf_reader.pages[page_index]
@@ -27,16 +27,15 @@ def extract_text_from_pdf(uploaded_file,selected_pages=None):
 
     return text
 
-# Function for dialogue summarization
-def summarize_dialogue(dialogue_text):
-    # Add your dialogue summarization logic here
-    return "Summarized Dialogue: " + dialogue_model(dialogue_text)[0]['summary_text']  # Placeholder logic
 
-# Streamlit app
+def summarize_dialogue(dialogue_text):
+   
+    return "Summarized Dialogue: " + dialogue_model(dialogue_text)[0]['summary_text'] 
+
 def main():
     st.title("Summarization App")
 
-    # Sidebar with buttons
+   
     st.sidebar.title("Summarization Options")
     summarization_option = st.sidebar.radio("Choose Summarization Type", ("Dialogue", "Health Report"))
 
@@ -58,11 +57,11 @@ def main():
             page_input = st.text_input("Page numbers")
             selected_pages = [int(page.strip()) for page in page_input.split(',') if page.strip().isdigit()]
         else:
-            selected_pages = None  # Summarize all pages
+            selected_pages = None  
 
         uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
         if uploaded_file is not None:
-            # Extract text from uploaded PDF
+        
             text = extract_text_from_pdf(uploaded_file,selected_pages)
             st.header("Original Text:")
             st.text(text)
@@ -72,7 +71,6 @@ def main():
                     st.write(summarized_dialogue)
                     pdf_filename = text_to_pdf(summarized_dialogue)
 
-# Provide download button for the PDF
                     with open(pdf_filename, "rb") as f:
                         st.download_button(
                         label="Download Summary as PDF",
@@ -82,9 +80,7 @@ def main():
                         )
                 else:
                     st.warning("Please enter some text to summarize.")
-                
-            # Add your health report summarization code here
-
+            
 
 if __name__ == "__main__":
     main()
